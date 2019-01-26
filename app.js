@@ -61,6 +61,8 @@ const handleDiscordEnvironmentVariable = (env_key, env_value) => {
 };
 
 const buildOptions = () => {
+    const raw_options = {};
+
     for (const [env_key, env_value] of Object.entries(OTTERFX_ENVIRONMENT_VARIABLES)) {
         if (typeof env_key !== "string") {
             throw new TypeError(`Invalid Inv Key: ${env_key}`);
@@ -68,13 +70,15 @@ const buildOptions = () => {
 
         if (env_key.startsWith(ENV_DISCORD_IDENTIFIER)) {
             handleDiscordEnvironmentVariable(env_key, env_value);
+        } else {
+            raw_options[env_key.toLowerCase()] = env_value;
         }
     }
 
-    return {
+    return Object.apply(raw_options, {
         discord : DISCORD_OPTIONS,
         fxserver: FXSERVER_OPTIONS
-    };
+    });
 };
 
 const handleError = (error) => {
