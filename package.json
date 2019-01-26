@@ -1,0 +1,27 @@
+{
+  "name": "otterfx",
+  "version": "0.1.0",
+  "description": "A simple discord bot to help FiveM's FXServers",
+  "main": "src/index",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AthenasEngineering/OtterFX.git"
+  },
+  "keywords": [
+    "otterfx",
+    "fxserver",
+    "fivem"
+  ],
+  "author": "AthenasEngineering",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AthenasEngineering/OtterFX/issues"
+  },
+  "homepage": "https://github.com/AthenasEngineering/OtterFX#readme",
+  "dependencies": {
+    "discord.js": "^11.4.2"
+  }
+}
