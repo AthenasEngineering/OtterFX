@@ -75,10 +75,10 @@ const buildOptions = () => {
         }
     }
 
-    return Object.apply(raw_options, {
-        discord : DISCORD_OPTIONS,
-        fxserver: FXSERVER_OPTIONS
-    });
+    return Object.assign({
+                            discord : DISCORD_OPTIONS,
+                            fxserver: FXSERVER_OPTIONS
+                        }, raw_options);
 };
 
 const handleError = (error) => {

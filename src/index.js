@@ -27,7 +27,7 @@
 //
 const {EventEmitter} = require("events");
 const DiscordConnector = require("./discord/index.js");
-
+const MongoDBConnector = require("./database/index.js");
 
 //
 //CLASS
@@ -36,10 +36,14 @@ class OtterFX extends EventEmitter {
     constructor(options = {}) {
         super();
         this.options = options;
-        this.discord_connector =  new DiscordConnector(this);
+
+        this.discord_connector = new DiscordConnector(this);
+        this.mongodb_connector = new MongoDBConnector(this);
     }
 
     async start() {
+        await this.mongodb_connector.connect();
+
         return this.discord_connector.login();
     }
 }
